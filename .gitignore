@@ -1,9 +1,13 @@
 # VS Code
 .vscode/
 
-# Assetto Server
+# AssettoServer
 /assettoServer/*
 /assettoServer-bak/
+
+# AssettoServer logs
+/app/logs/**
+!/app/logs/.gitkeep 
 
 # Sqlite db
 sql_app.sqlite
