@@ -4,6 +4,7 @@
 # AssettoServer
 /assettoServer/*
 /assettoServer-bak/
+!/assettoServer/.copy_ac_server_here
 
 # AssettoServer logs
 /app/logs/**
