@@ -36,10 +36,10 @@ def get_db():
         db.close()
 
 # Add new server config
-def add_server(entry_data: dict, db: Session) -> models.ServerConfigs:
+def add_server(server_data: dict, db: Session) -> models.ServerConfigs:
 
     server_config = models.ServerConfigs
-    server_config = db.add(server_config(**entry_data))
+    server_config = db.add(server_config(**server_data))
     db.commit()
     
     return server_config
@@ -63,8 +63,6 @@ def get_server_list(request: Request, db: Session=Depends(get_db)):
         request=request, name="serverlist.html", context=context
     )
 
-# Add test server
-
 
 # Car list
 @app.get("/cars/", response_class=HTMLResponse)
@@ -81,7 +79,7 @@ def get_car_list(request: Request, db: Session=Depends(get_db)):
 
 # Delete car
 
-# Rank car 
+# Rate car 
 
 # Start test server
 start_server("test", 1, "test.txt")

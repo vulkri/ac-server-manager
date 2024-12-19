@@ -9,6 +9,7 @@ class ServerConfigs(Base):
 
     id = Column(Integer, primary_key=True)
     name = Column(String, index=True)
+    enabled = Column(Boolean, default=False)
     preset = Column(String)
     track_name = Column(Integer, index=True)
     ai = Column(Boolean)

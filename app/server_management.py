@@ -1,8 +1,7 @@
 import subprocess
 import time
-import uuid
 
-# Save processes to db to start them when app is restarted?
+
 servers = []
 
 # Start server process
@@ -30,5 +29,12 @@ def monitor_servers():
 def background_monitor():
     while True:
         monitor_servers()
-        time.sleep(5)  
+        time.sleep(5)
 
+
+# Stop the server
+def stop_server(id):
+    server = next((server for server in servers if server["id"] == id), None)
+    process = server["process"]
+    process.kill()
+    outs, errs = process.communicate() # to kill parent and child processes
