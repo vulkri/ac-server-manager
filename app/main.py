@@ -82,8 +82,8 @@ def get_car_list(request: Request, db: Session=Depends(get_db)):
 # Rate car 
 
 # Start test server
-start_server("test", 1, "test.txt")
+#start_server("test", 1, "test.txt")
 
 # Start background monitor
-monitor_thread = threading.Thread(target=background_monitor, daemon=True)
-monitor_thread.start()
+#monitor_thread = threading.Thread(target=background_monitor, daemon=True)
+#monitor_thread.start()
