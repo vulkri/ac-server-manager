@@ -36,9 +36,9 @@ def get_db():
         db.close()
 
 # Add new server config
-def add_server(server_data: dict, db: Session) -> models.ServerConfigs:
+def add_server(server_data: dict, db: Session) -> models.ServerConfig:
 
-    server_config = models.ServerConfigs
+    server_config = models.ServerConfig
     server_config = db.add(server_config(**server_data))
     db.commit()
     
@@ -46,8 +46,8 @@ def add_server(server_data: dict, db: Session) -> models.ServerConfigs:
 
 # Get server list from database
 def get_serverlist(db: Session) -> dict:
-    servers = db.query(models.ServerConfigs).order_by(models.ServerConfigs.id.desc()).all()
-    servers_dict = [{column.name: getattr(row, column.name) for column in models.ServerConfigs.__table__.columns} for row in servers]
+    servers = db.query(models.ServerConfig).order_by(models.ServerConfig.id.desc()).all()
+    servers_dict = [{column.name: getattr(row, column.name) for column in models.ServerConfig.__table__.columns} for row in servers]
 
     return servers_dict
 
@@ -78,7 +78,12 @@ def get_car_list(request: Request, db: Session=Depends(get_db)):
 # Add car
 
 # Import cars
+@app.get("/cars/import/", response_class=HTMLResponse)
+def get_import_cars(request: Request):
 
+    return templates.TemplateResponse(
+        request=request, name="import_cars.html"
+    )
 
 # Delete car
 
