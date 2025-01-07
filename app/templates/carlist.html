@@ -1,8 +1,11 @@
 {% extends "base.html" %}
-{% block title %}Hall of Fame{% endblock %}
+{% block title %}Cars{% endblock %}
 {% block content %}
-<div class="flex items-center justify-center mx-auto px-6 max-w-7xl md:px-12 content-center pb-12">
-        <span class="text-gray-300 px-6 text-3xl font-bold">Server List</span>
+<div class="flex items-center justify-center mx-auto px-6 max-w-7xl md:px-12 content-center pb-6">
+        <span class="text-gray-300 px-6 text-3xl font-bold">Cars</span>
+</div>
+<div class="flex items-center justify-center mx-auto px-0 max-w-7xl md:px-12 content-center pb-12">
+        <a href="/import" class="text-gray-300 px-6 text-l">Import cars</a>
 </div>
 <div class="flex justify-center">
         <div class="pb-12">
@@ -13,16 +16,18 @@
                         <th class="px-4">Server name</th>
                         <th class="px-4">Enabled</th>
                         <th class="px-4">Preset</th>
+                        <th class="px-4">Track</th>
                         <th class="px-4">AI</th>
                         <th class="px-4">Status</th>
                 </tr>
                 </thead>
                 {% for server in servers %}
                 <tr class="hover:bg-sky-800">                
-                        <td class="px-4">{{server.id}}</td>
-                        <td class="px-4">{{server.name}}</td>
+                        <td class="px-4">{{server.pos}}</td>
+                        <td class="px-4">{{server.server_name}}</td>
                         <td class="px-4">{{server.enabled}}</td>
                         <td class="px-4">{{server.preset}}</td>
+                        <td class="px-4">{{server.track_name}}</td>
                         <td class="px-4">{{server.ai}}</td>
                         <td class="px-4">{{server.status}}</td>
                 </tr>

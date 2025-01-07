@@ -72,10 +72,13 @@ def get_car_list(request: Request, db: Session=Depends(get_db)):
     context = {"carlist": carlist}
 
     return templates.TemplateResponse(
-        request=request, name="serverlist.html", context=context
+        request=request, name="carlist.html", context=context
     )
 
 # Add car
+
+# Import cars
+
 
 # Delete car
 
